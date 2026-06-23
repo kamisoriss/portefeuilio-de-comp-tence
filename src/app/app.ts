@@ -1,12 +1,16 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Acceuil } from './acceuil/acceuil';
+import { Projets } from './projets/projets';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  // C'est ici que tu déclares que app a le droit d'utiliser tes balises
+  imports: [CommonModule, Acceuil, Projets],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'],
 })
 export class App {
-  protected readonly title = signal('portefeuilio-de-comp-tence');
+  title = 'portfolio-sio';
 }
