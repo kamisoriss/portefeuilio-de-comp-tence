@@ -1,0 +1,48 @@
+/* --- La barre de navigation --- */
+.navbar {
+  position: fixed; /* Garde le menu accroché en haut */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Couleur de fond foncée */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  z-index: 1000; /* S'assure que le menu passe par-dessus le reste du site */
+  box-sizing: border-box;
+}
+
+/* --- Le logo / Ton nom --- */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* --- Les liens du menu --- */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Espace entre chaque lien du menu */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #007bff; /* La couleur change quand on passe la souris */
+}
+
+/* --- Le contenu principal --- */
+main {
+  /* Ajoute une marge en haut pour que le premier composant (Accueil)
+     ne soit pas caché en dessous du menu fixe */
+  margin-top: 70px;
+}

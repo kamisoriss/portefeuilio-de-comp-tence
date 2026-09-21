@@ -2,11 +2,9 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "portefeuilio-de-competence": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,9 +22,6 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ]
           },
           "configurations": {
             "production": {
@@ -47,7 +42,6 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -56,10 +50,8 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "portefeuilio-de-competence:build:production"
             },
             "development": {
-              "buildTarget": "portefeuilio-de-competence:build:development"
             }
           },
           "defaultConfiguration": "development"
