@@ -1,52 +1,93 @@
-/* --- Grille des projets --- */
-.projects-grid {
+.conteneur-projets {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Grille adaptative : passe automatiquement de 1 colonne (mobile) à 2 ou 3 (PC) */
+.grille-projets {
   display: grid;
-  /* Crée des colonnes qui s'adaptent toutes seules : 300px minimum par rectangle */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px; /* Espace entre les rectangles */
-  padding: 20px 0;
+  gap: 30px;
+  margin-top: 20px;
 }
 
-/* --- Style d'un rectangle/carré cliquable --- */
-.project-card {
-  position: relative;
-  display: block;
-  border-radius: 10px;
-  overflow: hidden; /* Empêche l'image de dépasser des bords arrondis */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease; /* Animation fluide au survol */
-  text-decoration: none; /* Enlève le soulignement du lien */
-  aspect-ratio: 4 / 3; /* Force un format rectangle parfait pour toutes les cartes */
+/* Le style de la carte */
+.carte-projet {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-/* Effet au survol de la souris */
-.project-card:hover {
-  transform: translateY(-5px); /* Fait légèrement remonter le rectangle */
+/* Effet au survol de la souris (PC) */
+.carte-projet:hover {
+  transform: translateY(-5px);
+  background-color: var(--bg-card-hover);
+  border-color: var(--accent-cyan);
+  box-shadow: var(--accent-glow, 0 8px 25px rgba(2, 132, 199, 0.2));
 }
 
-/* --- L'image de fond du projet --- */
-.project-card img {
+/* Conteneur de l'image */
+.image-projet {
+  position: relative; /* C'est cette ligne qui bloque l'image [fill] à l'intérieur */
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Recadre l'image proprement sans l'écraser */
+  height: 200px;      /* Définit la taille stricte du cadre en haut */
+  overflow: hidden;   /* Empêche l'image de déborder sur le texte */
+  background-color: #111827; /* Optionnel : un fond sombre pour faire ressortir le logo */
 }
 
-/* --- Le bandeau contenant le titre --- */
-.card-overlay {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Fond noir semi-transparent */
-  color: white;
-  padding: 15px;
-  text-align: center;
+/* Force le logo à s'adapter proprement */
+.image-projet img {
+  object-fit: contain !important;
 }
 
-.tech-tag {
-  display: inline-block;
-  background-color: #007bff; /* Bleu typique des liens/boutons */
-  padding: 3px 8px;
-  border-radius: 15px;
-  font-size: 0.8em;
-  margin-top: 5px;
+.carte-projet:hover .image-projet img {
+  transform: scale(1.05); /* Zoom léger de l'image au survol */
+}
+
+/* Le texte dans la carte */
+.contenu-projet {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Pousse les tags vers le bas si le texte est court */
+}
+
+.contenu-projet h3 {
+  color: var(--accent-cyan);
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+}
+
+.contenu-projet p {
+  color: var(--text-main);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Les petits badges pour les technologies (Angular, etc.) */
+.tags-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags-tech span {
+  background-color: rgba(2, 132, 199, 0.1);
+  color: var(--text-main);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--accent-cyan);
 }

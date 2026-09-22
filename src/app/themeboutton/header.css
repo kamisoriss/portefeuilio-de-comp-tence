@@ -1,0 +1,12 @@
+.logo {
+  position: relative;
+
+  /* 1. On réduit la largeur pour le rendre plus compact / carré */
+  width: 450px;
+  max-width: 100%;
+  /* 2. On change le ratio pour le rendre plus haut (ex: 4 / 3 au lieu de 2 / 1) */
+  height: auto;
+  aspect-ratio: 4 / 3;
+  display: block;
+  margin: 0 auto;
+}

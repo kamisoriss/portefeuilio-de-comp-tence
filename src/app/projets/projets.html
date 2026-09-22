@@ -1,36 +1,44 @@
-<section id="projets" class="projects-section">
-  <h2 class="section-title">Mes Réalisations</h2>
-  <p class="section-subtitle">Travaux de formation, stages et projets personnels (Épreuve E5)</p>
+<section class="conteneur-projets">
+  <h1 class="titre-page">Mes Projets</h1>
 
-  <!-- Conteneur qui affichera les projets en rectangles côte à côte -->
-  <div class="projects-grid">
-
-    <!-- Carte Projet 1 : Mahjong -->
-    <a href="#modal-mahjong" class="project-card">
-      <img src="assets/images/mahjong-cover.jpg" alt="Interface du jeu de Mahjong">
-      <div class="card-overlay">
-        <h3>Moteur de Jeu Mahjong</h3>
-        <span class="tech-tag">Angular / Node.js</span>
+  <div class="grille-projets">
+    <!-- Carte Projet 1 -->
+    <article class="carte-projet">
+      <div class="image-projet">
+        <img ngSrc="assets/gestionrecruteur_screen.png" alt="Migration Angular" fill="true">
       </div>
-    </a>
+      <div class="contenu-projet">
+        <h3>création application web</h3>
+        <p>Création d'une application web sur mesure permettant de centraliser la gestion des messages de l'entreprise.</p>
+        <div class="tags-tech">
+          <span>Angular</span>
+          <span>HTML</span>
+          <span>TypeScript</span>
+          <span>NodeJs</span>
+          <span>MYSQL</span>
 
-    <!-- Carte Projet 2 : OPTIVAL -->
-    <a href="#modal-optival" class="project-card">
-      <img src="assets/images/optival-cover.jpg" alt="Schéma BDD Optival">
-      <div class="card-overlay">
-        <h3>Gestion de données OPTIVAL</h3>
-        <span class="tech-tag">PostgreSQL</span>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <!-- Carte Projet 3 : First Giants -->
-    <a href="#modal-firstgiants" class="project-card">
-      <img src="assets/images/firstgiants-cover.jpg" alt="Aperçu First Giants">
-      <div class="card-overlay">
-        <h3>First Giants</h3>
-        <span class="tech-tag">Jeu Hybride</span>
+    <!-- Carte Projet 2 -->
+    <article class="carte-projet">
+      <div class="image-projet">
+        <img ngSrc="assets/blindgame_screen.png" alt="API Backend" fill="true">
       </div>
-    </a>
+      <div class="contenu-projet">
+        <h3>application web de quizz</h3>
+        <p>lors de mon BTS j'ai pu effectué une application web de quizz en groupe avec un lien avec une base de donnée</p>
+        <div class="tags-tech">
+          <span>PHP</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JS</span>
+          <span>MYSQL</span>
+        </div>
+      </div>
+    </article>
 
+    <!-- Ajoute d'autres cartes ici sur le même modèle -->
   </div>
 </section>

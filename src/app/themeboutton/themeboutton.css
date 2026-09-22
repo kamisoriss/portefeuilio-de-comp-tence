@@ -1,0 +1,95 @@
+.theme-switch {
+  /* 1. LE PLACEMENT (en haut à droite) */
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  z-index: 9999;
+
+  /* 2. LA TAILLE ET LE COMPORTEMENT (ton code d'origine) */
+  display: block;
+  width: 120px;
+  height: 44px; /* 44px au total */
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Cache l'input natif */
+.theme-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Le grand rail extérieur */
+.slider {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* On décale un peu plus les icônes vers le centre */
+  padding: 0 24px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.theme-switch:hover .slider {
+  border-color: var(--border-hover);
+}
+
+/* Taille des icônes SVG */
+.icon {
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+/* 2. Le curseur glissant : La règle des 50% */
+.slider::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px; /* On remet à 4px POSITIF (aucun débordement à gauche !) */
+
+  /* MATHS : 120px (total) - 4px (bordures) - 8px (marges) = 108px d'espace vide.
+     La moitié exacte de 108px est 54px. */
+  width: 54px;
+  height: 32px;
+
+  background: var(--accent-gradient);
+  border-radius: 20px; /* Forme de pilule parfaite */
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+input:checked + .slider::after {
+  /* On le décale exactement de sa propre largeur (54px)
+     pour qu'il remplisse parfaitement la moitié droite ! */
+  transform: translateX(54px);
+}
+
+/* Effets d'opacité sur le Soleil et la Lune */
+input:not(:checked) + .slider .moon {
+  opacity: 0.2;
+  transform: scale(0.85);
+}
+
+input:not(:checked) + .slider .sun {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+input:checked + .slider .sun {
+  opacity: 0.2;
+  transform: scale(0.85);
+}
+
+input:checked + .slider .moon {
+  opacity: 1;
+  transform: scale(1.1);
+}

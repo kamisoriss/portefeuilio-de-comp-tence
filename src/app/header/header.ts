@@ -1,9 +1,17 @@
-import { Component } from '@angular/core';
+import { Component,inject } from '@angular/core';
+import {NavBar} from '../nav-bar/nav-bar';
+import {Themeboutton} from '../themeboutton/themeboutton';
+import {Theme} from '../service/theme';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [
+    NavBar,
+    Themeboutton
+  ],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+  theme = inject(Theme)
+}
