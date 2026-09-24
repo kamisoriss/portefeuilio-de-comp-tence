@@ -1,0 +1,61 @@
+/* --- Conteneur global de la page d'accueil --- */
+/* Dans accueil.component.css */
+.accueil-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Réduction de la hauteur minimale pour rapprocher la section suivante */
+  min-height: 50vh;
+  padding: 40px 20px; /* Légèrement moins de padding latéral si besoin */
+}
+
+/* --- La carte avec effet Glassmorphism --- */
+.profile-container {
+  background-color: var(--bg-card); /* Utilise la couleur de carte de ton thème */
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 50px 40px;
+  max-width: 750px;
+  text-align: center; /* Centre le texte et les boutons */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* --- Typographie --- */
+.main-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-indigo); /* Couleur d'accentuation pour faire ressortir le BTS */
+}
+
+.description {
+  font-size: 1.15rem;
+  color: var(--text-main); /* J'utilise la couleur principale pour qu'elle reste lisible sur le bleu */
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* --- Espacement spécifique si tu veux ajuster les boutons ici --- */
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.lien{
+  text-decoration: none;
+  color: #0031ff;
+  font: bold 1rem "Roboto", sans-serif;
+}
+.lien:hover{
+  color: #2468ff;
+}

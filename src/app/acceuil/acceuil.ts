@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {Gestionfichier} from '../service/gestionfichier';
 @Component({
   selector: 'app-acceuil',
   templateUrl: './acceuil.html',
   styleUrl: './acceuil.css',
 })
 export class Acceuil {
-  urlcv: string = 'assets/documents/CV.pdf';
-  nomfichiercv:  string = 'CV.pdf';
+  private gestionfichierService = inject(Gestionfichier);
+  telechargementfichier(event: Event, url: string,nomfichier: string) {
+    event.preventDefault();
+    this.gestionfichierService.telechargerfichier(url,nomfichier);
+  }
 }
