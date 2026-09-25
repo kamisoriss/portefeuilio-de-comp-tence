@@ -1,12 +1,11 @@
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  width: 260px;
+  width: clamp(200px, 20vw, 250px);
   height: 100vh;
 
   background-color: var(--bg-card);
   border-right: 1px solid var(--border-color);
-
   display: flex;
   flex-direction: column;
   padding: 40px 20px;
