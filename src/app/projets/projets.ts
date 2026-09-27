@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
+import {Gestionfichier} from '../service/gestionfichier';
 
 @Component({
   selector: 'app-projets',
@@ -9,4 +10,10 @@ import {NgOptimizedImage} from '@angular/common';
   templateUrl: './projets.html',
   styleUrl: './projets.css',
 })
-export class Projets {}
+export class Projets {
+  private gestionfichierService = inject(Gestionfichier);
+  telechargementfichier(event: Event, url: string,nomfichier: string) {
+    event.preventDefault();
+    this.gestionfichierService.telechargerfichier(url,nomfichier);
+  }
+}
