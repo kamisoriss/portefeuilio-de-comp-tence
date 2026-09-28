@@ -5,7 +5,6 @@
   padding: 20px;
 }
 
-/* Grille adaptative : passe automatiquement de 1 colonne (mobile) à 2 ou 3 (PC) */
 .grille-projets {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -13,7 +12,6 @@
   margin-top: 20px;
 }
 
-/* Le style de la carte */
 .carte-projet {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -21,44 +19,41 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  box-shadow: var(--card-shadow); /* S'adapte automatiquement */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Effet au survol de la souris (PC) */
 .carte-projet:hover {
   transform: translateY(-5px);
   background-color: var(--bg-card-hover);
   border-color: var(--accent-cyan);
-  box-shadow: var(--accent-glow, 0 8px 25px rgba(2, 132, 199, 0.2));
+  box-shadow: var(--accent-glow); /* S'adapte automatiquement */
 }
 
-/* Conteneur de l'image */
 .image-projet {
-  position: relative; /* C'est cette ligne qui bloque l'image [fill] à l'intérieur */
+  position: relative;
   width: 100%;
-  height: 200px;      /* Définit la taille stricte du cadre en haut */
-  overflow: hidden;   /* Empêche l'image de déborder sur le texte */
-  background-color: #111827; /* Optionnel : un fond sombre pour faire ressortir le logo */
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--card-img-bg); /* Blanc en clair, Sombre en mode nuit */
 }
 
-/* Force le logo à s'adapter proprement */
 .image-projet img {
   object-fit: contain !important;
+  transition: transform 0.3s ease;
 }
 
 .carte-projet:hover .image-projet img {
-  transform: scale(1.05); /* Zoom léger de l'image au survol */
+  transform: scale(1.05);
 }
 
-/* Le texte dans la carte */
 .contenu-projet {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Pousse les tags vers le bas si le texte est court */
+  flex-grow: 1;
 }
 
 .contenu-projet h3 {
@@ -75,7 +70,6 @@
   flex-grow: 1;
 }
 
-/* Les petits badges pour les technologies (Angular, etc.) */
 .tags-tech {
   display: flex;
   flex-wrap: wrap;
@@ -83,11 +77,11 @@
 }
 
 .tags-tech span {
-  background-color: rgba(2, 132, 199, 0.1);
-  color: var(--text-main);
+  background-color: var(--tag-bg); /* S'adapte automatiquement */
+  color: var(--tag-text); /* S'adapte automatiquement */
+  font-weight: var(--tag-weight); /* S'adapte automatiquement */
+  border: 1px solid var(--accent-cyan);
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
-  font-weight: 500;
-  border: 1px solid var(--accent-cyan);
 }
